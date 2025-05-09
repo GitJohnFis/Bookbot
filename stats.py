@@ -1,37 +1,32 @@
-# def num_words(text):
-#     words = text.split()
-#     return len(words)
+"""Module for computing text statistics.
 
-# def get_character_count(text):
-#     char_count = {}
-#     for c in text:
-#         lowered = c.lower()
-#         if lowered in char_count:
-#             char_count[lowered] += 1
-#         else:
-#             char_count[lowered] = 1
-#             return char_count
-  
-# def sort_char_count(dict):
-#       return dict[num]
+This module provides functions for counting words, counting characters,
+and converting and sorting character frequency data.
+"""
 
-# def get_char_dict_sort_char_count(num_chars_dict):
-#         sorted_dict = []
-#         for ch in num_chars_dict:
-#             sorted_dict.append({"char": ch, "num": num_chars_dict[ch]})
-#             sorted_dict.sort(reverse=True, key=sort_char_count)
-#             return sorted_dict
-# stats.py
 def get_num_words(text):
+    """
+    Return the number of words in the given text.
+    
+    Args:
+        text (str): The text to be evaluated.
+        
+    Returns:
+        int: The total number of words in the text.
+    """
     words = text.split()
     return len(words)
 
 
 def count_characters(text):
     """
-    Counts how many times each character appears in the text.
-    Converts all characters to lowercase to avoid duplicates.
-    Returns a dictionary mapping each character (str) to its count (int).
+    Count the occurrences of each character in the text.
+    
+    Args:
+        text (str): The text in which to count characters.
+        
+    Returns:
+        dict: A dictionary where keys are characters and values are their respective counts.
     """
     counts = {}
     for char in text.lower():
@@ -41,13 +36,17 @@ def count_characters(text):
 
 def get_char_dict_sort_char_count(char_count):
     """
-    Takes a dictionary of characters and their counts, and returns a sorted
-    list of dictionaries. Each dictionary contains two key-value pairs:
-      - 'char': The character itself.
-      - 'num': The count of that character.
-    
-    Only alphabetical characters (letters) are included.
-    The list is sorted from greatest to least by the count.
+    Convert a character frequency dictionary into a sorted list of dictionaries.
+
+    Each dictionary in the returned list contains keys 'char' for the character and 'num'
+    for its frequency.
+    The list is sorted in descending order by frequency.
+
+    Args:
+        char_counts (dict): A dictionary mapping characters to their counts.
+
+    Returns:
+        list: A list of dictionaries sorted by character count in descending order.
     """
     char_list = []
     for char, num in char_count.items():
