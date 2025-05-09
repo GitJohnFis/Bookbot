@@ -1,4 +1,4 @@
-name: BookBot CI
+name: CI
 
 on:
   push:
